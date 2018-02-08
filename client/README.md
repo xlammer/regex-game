@@ -1,24 +1,29 @@
-# AngularElectron
+# Regex game client
 
-Build a native desktop timer app with Angular and Electron 
+Native desktop application to communicate with regex game server
 
-![](https://firebasestorage.googleapis.com/v0/b/firestarter-96e46.appspot.com/o/assets%2Fangular-electron-timer.gif?alt=media&token=597f37b8-8983-414c-8b08-c038621f12d7)
-
+Based on:
 - Angular v4.2
-- Electron v1.7
+- Electron v1.8
 - Angular CLI v1.4 
 
-## Basic Usage
+## Getting started
 
-```shell
-git clone
-cd angular-electron
-npm install
+###Requirements
+- Node >= 6.9.0 
+- Npm >= 3
 
-# build the app
-npm run electron-build
-```
+###Setup
+1. Install Angular CLI dependency globally:
+```npm install -g @angular/cli```
+2. Install Electron packager dependency globally: ```npm install electron-packager -g```
+3. Run ```npm install``` from root folder of the client to download node modules
 
-## Lessons and Screencasts
+### Building and running
 
-Learn how to bulid this [Angular Electron](https://angularfirebase.com/lessons/desktop-apps-with-electron-and-angular/) project step-by-step. 
+Run ```npm run electron-build``` to build and start game client desktop application
+
+### Packaging
+
+For windows executable: ```electron-packager . --platform=win32```
+For mac executable: ```electron-packager . --platform=darwin```
