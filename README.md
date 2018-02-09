@@ -9,11 +9,11 @@ Based on:
 
 ## Getting started
 
-###Requirements
+### Requirements
 - Node >= 6.9.0 
 - Npm >= 3
 
-###Setup
+### Setup
 1. Install Angular CLI dependency globally:
 ```npm install -g @angular/cli```
 2. Install Electron packager dependency globally: ```npm install electron-packager -g```
@@ -26,4 +26,5 @@ Run ```npm run electron-build``` to build and start game client desktop applicat
 ### Packaging
 
 For windows executable: ```electron-packager . --platform=win32```
+
 For mac executable: ```electron-packager . --platform=darwin```
