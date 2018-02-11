@@ -11,7 +11,7 @@ import {RoundProgressModule} from 'angular-svg-round-progressbar'; // <-- here
     AppComponent
   ],
   imports: [
-    BrowserModule,
+      BrowserModule,
     FormsModule, // <-- here
     RoundProgressModule // <-- and here
   ],

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/interval';
 import 'rxjs/add/operator/map';
@@ -13,19 +13,19 @@ import 'rxjs/add/operator/do';
 })
 export class AppComponent {
 
-  max = 1;
+    max = 1;
   current = 0;
 
   start() {
     const interval = Observable.interval(100);
 
-    interval
-      .takeWhile(_ => !this.isFinished)
+      interval
+          .takeWhile(_ => !this.isFinished)
       .do(i => this.current += 0.1)
       .subscribe();
   }
 
-  /// finish timer
+    /// finish timer
   finish() {
     this.current = this.max;
   }
