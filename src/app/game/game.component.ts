@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 
 @Component({
     selector: 'app-game',
@@ -8,19 +7,21 @@ import {Observable} from 'rxjs/Observable';
 })
 export class GameComponent implements OnInit {
 
-    timeLeft: 0;
-    tasks: [1, 2, 3, 4, 5];
-
-    constructor() {
-    }
+    public timeLeft = 300;
+    tasks = [1, 2, 3, 4, 5];
+    task: 1;
 
     ngOnInit() {
-        const interval = Observable.interval(300);
+        setInterval(function () {
+            this.timeLeft -= 1;
+            console.log('tick ' + this.timeLeft);
+            // why NaN?
+        }, 1000);
+    }
 
-        interval
-            .takeWhile(_ => this.timeLeft < 300)
-            .do(i => this.timeLeft += 0.1)
-            .subscribe();
+    setActive(task) {
+        this.task = task;
+        console.log('active task - ' + task);
     }
 
 }

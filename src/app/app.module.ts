@@ -1,24 +1,14 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
-import {AppComponent} from './app.component';
-
-
-import {Routes} from '@angular/router';
-
-
 import {FormsModule} from '@angular/forms';
-import {RoundProgressModule} from 'angular-svg-round-progressbar';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import {GameComponent} from './game/game.component';
-import {WelcomeComponent} from './welcome/welcome.component';
 import {AppRoutingModule} from './app-routing.module';
 
+import {AppComponent} from './app.component';
+import {GameComponent} from './game/game.component';
+import {WelcomeComponent} from './welcome/welcome.component';
 
-const routes: Routes = [
-    {path: 'welcome', component: WelcomeComponent},
-    {path: 'game', component: GameComponent}
-];
 
 @NgModule({
     declarations: [
@@ -28,9 +18,9 @@ const routes: Routes = [
     ],
     imports: [
         BrowserModule,
+        AppRoutingModule,
         FormsModule,
-        RoundProgressModule,
-        AppRoutingModule
+        NgbModule.forRoot()
     ],
     providers: [],
     bootstrap: [AppComponent]

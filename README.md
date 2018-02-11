@@ -21,6 +21,8 @@ Based on:
 
 ### Building and running
 
+Run ```ng serve --open``` to run application in the browser with hot code updates
+
 Run ```npm run electron-build``` to build and start game client desktop application
 
 ### Packaging

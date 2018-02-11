@@ -1,21 +1,29 @@
 <div class="container">
-    {{tasks}}
     <div class="row">
-        <p class="text-left">{{timeLeft}}</p>
+        <p class="text-right">You have {{timeLeft}} seconds left.</p>
     </div>
     <div class="row">
-        <p>
-            <button type="button" class="btn btn-primary btn-lg" *ngFor="let taskNr of tasks; index as i;">Task {{i}}
-            </button>
-        </p>
+        <button type="button" class="btn btn-default" *ngFor="let task of tasks; index as i;" (click)="setActive(i)">
+            Task {{task}}
+        </button>
     </div>
+    <br>
+    <br>
+
     <div class="row">
-        <p class="bg-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+
+        <ngb-alert [dismissible]="false">
+            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+        </ngb-alert>
         <p class="bg-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
     </div>
+    <hr>
     <div class="row">
         <div class="row">
-            <div class="col-md-4">Some text</div>
+            <div class="col-md-4">
+                Some text to search from Some text to search from Some text to search from Some text to search from
+                Some text to search from Some text to search from Some text to search from
+            </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="regex">Regular expression</label>
