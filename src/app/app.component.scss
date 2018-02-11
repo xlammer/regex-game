@@ -1,10 +1,11 @@
-.content { 
-  width: 500px;
-  height: 500px;
+.content {
   text-align: center;
-  padding: 50px;
+  padding-top: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   margin: auto;
 }
+
 .progress-wrapper {
   position: relative;
   margin: 20px auto;
@@ -25,7 +26,7 @@
 
 }
 
-round-progress { 
+round-progress {
   margin: auto;
 }
 
@@ -34,7 +35,7 @@ round-progress {
   margin: auto;
 }
 
-.input { 
+.input {
   text-align: center;
   margin: auto;
   max-width: 250px;

@@ -1,0 +1,28 @@
+<div class="container">
+    {{tasks}}
+    <div class="row">
+        <p class="text-left">{{timeLeft}}</p>
+    </div>
+    <div class="row">
+        <p>
+            <button type="button" class="btn btn-primary btn-lg" *ngFor="let taskNr of tasks; index as i;">Task {{i}}
+            </button>
+        </p>
+    </div>
+    <div class="row">
+        <p class="bg-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+        <p class="bg-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+    </div>
+    <div class="row">
+        <div class="row">
+            <div class="col-md-4">Some text</div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="regex">Regular expression</label>
+                    <input type="text" class="form-control input-lg" id="regex" placeholder="Regex">
+                </div>
+            </div>
+            <div class="col-md-4">results</div>
+        </div>
+    </div>
+</div>
