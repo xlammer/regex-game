@@ -1,4 +1,7 @@
 import {Component, OnInit} from '@angular/core';
+import {TaskService} from '../task.service';
+import {Task} from '../Task';
+
 
 @Component({
     selector: 'app-game',
@@ -8,20 +11,24 @@ import {Component, OnInit} from '@angular/core';
 export class GameComponent implements OnInit {
 
     public timeLeft = 300;
-    tasks = [1, 2, 3, 4, 5];
-    task: 1;
 
-    ngOnInit() {
-        setInterval(function () {
-            this.timeLeft -= 1;
-            console.log('tick ' + this.timeLeft);
-            // why NaN?
-        }, 1000);
+    tasks: Task [];
+    currentTask: Task;
+
+    constructor(private taskService: TaskService) {
     }
 
-    setActive(task) {
-        this.task = task;
-        console.log('active task - ' + task);
+    ngOnInit() {
+        this.tasks = this.getTasks();
+    }
+
+    private getTasks() {
+        return this.taskService.getTasks();
+    }
+
+    setActive(index) {
+        this.currentTask = this.tasks[index];
+        console.log('active task - ' + this.currentTask);
     }
 
 }

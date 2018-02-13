@@ -8,6 +8,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {GameComponent} from './game/game.component';
 import {WelcomeComponent} from './welcome/welcome.component';
+import {TaskService} from './task.service';
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import {WelcomeComponent} from './welcome/welcome.component';
         FormsModule,
         NgbModule.forRoot()
     ],
-    providers: [],
+    providers: [TaskService],
     bootstrap: [AppComponent]
 })
 

@@ -1,10 +1,11 @@
-<div class="container">
+<div class="container text-left">
     <div class="row">
         <p class="text-right">You have {{timeLeft}} seconds left.</p>
     </div>
-    <div class="row">
-        <button type="button" class="btn btn-default" *ngFor="let task of tasks; index as i;" (click)="setActive(i)">
-            Task {{task}}
+    <div class="row text-center">
+        <button type="button" class="btn btn-default task-btn" *ngFor="let task of tasks; index as i;"
+                (click)="setActive(i)">
+            {{task.id}}
         </button>
     </div>
     <br>
@@ -12,17 +13,34 @@
 
     <div class="row">
 
+        <div class="bg-info task-info rounded">
+            <h1>Task
+                <small>Matching a digit</small>
+            </h1>
+            <hr>
+            Let's start from the simplest rule, probably :) Matching a digit. <br>
+            There are many cases in daily routines that require us working with integers.<br>
+            For that you have to specify special character <strong>\d</strong>. It will match any number form your input
+            string.
+        </div>
+    </div>
+    <br>
+    <div class="row">
         <ngb-alert [dismissible]="false">
-            <strong>Warning!</strong> Better check yourself, you're not looking too good.
+            <strong>Testing time!</strong> <br>
+            Let's assume you receive a message from some third party application with month and year combination and
+            you'd like to extract only the year. <br>
+            Please enter the appropriate regular expression into the box bellow to see the results.
         </ngb-alert>
-        <p class="bg-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
     </div>
     <hr>
     <div class="row">
         <div class="row">
             <div class="col-md-4">
-                Some text to search from Some text to search from Some text to search from Some text to search from
-                Some text to search from Some text to search from Some text to search from
+                <div class="form-group">
+                    <label for="regex">Text</label>
+                    <p>Feb2017 Jan-2009 303BC</p>
+                </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
@@ -30,7 +48,12 @@
                     <input type="text" class="form-control input-lg" id="regex" placeholder="Regex">
                 </div>
             </div>
-            <div class="col-md-4">results</div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="regex">Result</label>
+                    <p>some result</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
