@@ -15,22 +15,17 @@
 
         <div class="bg-info task-info rounded">
             <h1>Task
-                <small>Matching a digit</small>
+                <small>{{currentTask.shortName}}</small>
             </h1>
             <hr>
-            Let's start from the simplest rule, probably :) Matching a digit. <br>
-            There are many cases in daily routines that require us working with integers.<br>
-            For that you have to specify special character <strong>\d</strong>. It will match any number form your input
-            string.
+            <div [innerHTML]="currentTask.lessonHtml"></div>
         </div>
     </div>
     <br>
     <div class="row">
         <ngb-alert [dismissible]="false">
             <strong>Testing time!</strong> <br>
-            Let's assume you receive a message from some third party application with month and year combination and
-            you'd like to extract only the year. <br>
-            Please enter the appropriate regular expression into the box bellow to see the results.
+            <div [innerHTML]="currentTask.taskHtml"></div>
         </ngb-alert>
     </div>
     <hr>
@@ -39,7 +34,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="regex">Text</label>
-                    <p>Feb2017 Jan-2009 303BC</p>
+                    <p>{{currentTask.inputText}}</p>
                 </div>
             </div>
             <div class="col-md-4">
@@ -51,7 +46,7 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="regex">Result</label>
-                    <p>some result</p>
+                    <p>Here will be results</p>
                 </div>
             </div>
         </div>

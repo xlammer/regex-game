@@ -5,6 +5,7 @@ export class Task {
     lessonHtml: string;
     taskHtml: string;
     inputText: string;
+    solution: string;
     expectedOutput: string;
 
     constructor(id: number) {

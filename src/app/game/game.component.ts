@@ -20,6 +20,7 @@ export class GameComponent implements OnInit {
 
     ngOnInit() {
         this.tasks = this.getTasks();
+        this.currentTask = this.tasks[0];
     }
 
     private getTasks() {
