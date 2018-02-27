@@ -29,7 +29,30 @@ export class GameComponent implements OnInit {
 
     setActive(index) {
         this.currentTask = this.tasks[index];
-        console.log('active task - ' + this.currentTask);
+    }
+
+    regexChanged() {
+        if (this.currentTask == null || this.currentTask.regex == null || this.currentTask.regex === '') {
+            return '';
+        }
+        try {
+            let regexp = new RegExp(this.currentTask.regex, 'gi');
+            console.log(regexp);
+
+            let results = [];
+            for (let text of this.currentTask.inputText) {
+                console.log('checking text: ' + text);
+                let match;
+                let accu = '';
+                while ((match = regexp.exec(text)) !== null) {
+                    accu += match;
+                }
+                results.push(accu);
+            }
+            this.currentTask.output = results;
+        } catch {
+            this.currentTask.output = ['Malformed syntax!'];
+        }
     }
 
 }

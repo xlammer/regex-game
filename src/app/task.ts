@@ -4,9 +4,11 @@ export class Task {
     shortName: string;
     lessonHtml: string;
     taskHtml: string;
-    inputText: string;
+    inputText: string [];
+    regex: string;
     solution: string;
-    expectedOutput: string;
+    output: string [];
+    expectedOutput: string [];
 
     constructor(id: number) {
         this.id = id;

@@ -14,7 +14,7 @@
     <div class="row">
 
         <div class="bg-info task-info rounded">
-            <h1>Task
+            <h1>Task #{{currentTask.id}}
                 <small>{{currentTask.shortName}}</small>
             </h1>
             <hr>
@@ -33,20 +33,25 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="regex">Text</label>
-                    <p>{{currentTask.inputText}}</p>
+                    <label for="regex">Text input</label>
+                    <ul>
+                        <li *ngFor="let text of currentTask.inputText;">{{text}}</li>
+                    </ul>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="regex">Regular expression</label>
-                    <input type="text" class="form-control input-lg" id="regex" placeholder="Regex">
+                    <input type="text" class="form-control input-lg" id="regex" placeholder="Regex"
+                           [(ngModel)]="currentTask.regex" (change)="regexChanged()">
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="regex">Result</label>
-                    <p>Here will be results</p>
+                    <label for="regex">Results</label>
+                    <ul>
+                        <li *ngFor="let out of currentTask.output;">{{out}}</li>
+                    </ul>
                 </div>
             </div>
         </div>
