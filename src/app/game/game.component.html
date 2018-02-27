@@ -3,8 +3,8 @@
         <p class="text-right">You have {{timeLeft}} seconds left.</p>
     </div>
     <div class="row text-center">
-        <button type="button" class="btn btn-default task-btn" *ngFor="let task of tasks; index as i;"
-                (click)="setActive(i)">
+        <button type="button" *ngFor="let task of tasks; index as i;"
+                (click)="setActive(i)" [class]="getTaskButtonClass(task.id) + ' btn task-btn'">
             {{task.id}}
         </button>
     </div>
@@ -34,8 +34,8 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="regex">Text input</label>
-                    <ul>
-                        <li *ngFor="let text of currentTask.inputText;">{{text}}</li>
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let text of currentTask.inputText;">{{text}}</li>
                     </ul>
                 </div>
             </div>
@@ -49,8 +49,8 @@
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="regex">Results</label>
-                    <ul>
-                        <li *ngFor="let out of currentTask.output;">{{out}}</li>
+                    <ul class="list-group">
+                        <li class="list-group-item" *ngFor="let out of currentTask.output;">{{out}}</li>
                     </ul>
                 </div>
             </div>

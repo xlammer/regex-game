@@ -27,8 +27,8 @@ export class GameComponent implements OnInit {
         return this.taskService.getTasks();
     }
 
-    setActive(index) {
-        this.currentTask = this.tasks[index];
+    setActive(id) {
+        this.currentTask = this.tasks[id];
     }
 
     regexChanged() {
@@ -55,4 +55,18 @@ export class GameComponent implements OnInit {
         }
     }
 
+    getTaskButtonClass(id) {
+        if (this.taskFinished(id)) {
+            return 'btn-success';
+        }
+        if (this.currentTask.id === id) {
+            return 'btn-primary';
+        }
+        return 'btn-default';
+    }
+
+    taskFinished(id: number) {
+        let task = this.tasks[id - 1];
+        return task.isFinished();
+    }
 }
