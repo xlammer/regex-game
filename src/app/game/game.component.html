@@ -1,6 +1,9 @@
 <div class="container text-left">
-    <div class="row">
-        <p class="text-right">You have {{timeLeft}} seconds left.</p>
+    <div class="row progress">
+        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="timeLeft"
+             aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+            <span class="sr-only">45% Complete</span>
+        </div>
     </div>
     <div class="row text-center">
         <button type="button" *ngFor="let task of tasks; index as i;"
@@ -12,12 +15,11 @@
     <br>
 
     <div class="row">
-
         <div class="bg-info task-info rounded">
             <h1>Task #{{currentTask.id}}
                 <small>{{currentTask.shortName}}</small>
             </h1>
-            <hr>
+            <hr class="black-border">
             <div [innerHTML]="currentTask.lessonHtml"></div>
         </div>
     </div>
@@ -44,6 +46,10 @@
                     <label for="regex">Regular expression</label>
                     <input type="text" class="form-control input-lg" id="regex" placeholder="Regex"
                            [(ngModel)]="currentTask.regex" (change)="regexChanged()">
+                </div>
+                <div class="alert alert-success" role="alert" *ngIf="success()">
+                    <b>Congratulations!</b> Well done.
+                    {{currentTask.id !== tasks.length ? 'Shall we continue?' : ''}}
                 </div>
             </div>
             <div class="col-md-4">

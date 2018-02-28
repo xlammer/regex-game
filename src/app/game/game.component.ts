@@ -10,8 +10,6 @@ import {Task} from '../Task';
 })
 export class GameComponent implements OnInit {
 
-    public timeLeft = 300;
-
     tasks: Task [];
     currentTask: Task;
 
@@ -63,6 +61,10 @@ export class GameComponent implements OnInit {
             return 'btn-primary';
         }
         return 'btn-default';
+    }
+
+    success() {
+        return this.taskFinished(this.currentTask.id);
     }
 
     taskFinished(id: number) {
