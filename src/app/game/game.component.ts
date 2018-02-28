@@ -69,4 +69,12 @@ export class GameComponent implements OnInit {
         let task = this.tasks[id - 1];
         return task.isFinished();
     }
+
+    isResultOk(index: number) {
+        return this.currentTask.output[index] === this.currentTask.expectedOutput[index];
+    }
+
+    resultClass(index: number) {
+        return this.isResultOk(index) ? 'list-group-item-success' : 'list-group-item-danger';
+    }
 }
