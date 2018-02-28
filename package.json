@@ -28,6 +28,7 @@
     "angular-svg-round-progressbar": "^1.1.0",
     "bootstrap": "3.3.7",
     "core-js": "^2.4.1",
+    "ng-circle-progress": "^0.9.9",
     "rxjs": "^5.5.0",
     "zone.js": "^0.8.14"
   },

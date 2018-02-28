@@ -7,8 +7,8 @@
 }
 
 .task-btn {
-    margin-left: 25px;
-    margin-right: 25px;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 50%;
     font-size: 16pt;
     width: 45px;
@@ -16,4 +16,10 @@
 
 .black-border {
     border-color: #9d9d9d;
+}
+
+.col-middle {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }

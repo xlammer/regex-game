@@ -1,18 +1,15 @@
 <div class="container text-left">
-    <div class="row progress">
-        <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="timeLeft"
-             aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-            <span class="sr-only">45% Complete</span>
+
+    <div class="row text-right">
+        <div class="col-md-6 text-center col-middle">
+            <button type="button" *ngFor="let task of tasks; index as i;"
+                    (click)="setActive(i)" [class]="getTaskButtonClass(task.id) + ' btn task-btn'">
+                {{task.id}}
+            </button>
         </div>
+
+        <app-timer class="col-middle col-md-4"></app-timer>
     </div>
-    <div class="row text-center">
-        <button type="button" *ngFor="let task of tasks; index as i;"
-                (click)="setActive(i)" [class]="getTaskButtonClass(task.id) + ' btn task-btn'">
-            {{task.id}}
-        </button>
-    </div>
-    <br>
-    <br>
 
     <div class="row">
         <div class="bg-info task-info rounded">
