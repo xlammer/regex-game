@@ -10,33 +10,50 @@ export class TaskService {
     constructor() {
     }
 
+    async loadFile(path: string) {
+        return new Promise<string>((resolve, reject) => {
+
+            const request = new XMLHttpRequest();
+            request.open('GET', path, true);
+            request.responseType = 'blob';
+
+            request.onload = () => {
+                const reader = new FileReader();
+
+                reader.onload = (e: any) => resolve(e.target.result);
+                reader.onerror = err => reject(err);
+                reader.readAsText(request.response);
+            };
+
+            request.send();
+        });
+    }
+
+
+
     getTasks(): Task[] {
         let tasks = [];
         for (let id of this.ids) {
             let task = new Task(id);
 
-            fetch('/assets/data/task' + id + '/lesson.html')
-                .then(response => response.text())
-                .then(text => task.lessonHtml = text);
+            this.loadFile('./assets/data/task' + id + '/lesson.html').then(text => task.lessonHtml = text);
 
-            fetch('/assets/data/task' + id + '/task.html')
-                .then(response => response.text())
-                .then(text => task.taskHtml = text);
+            this.loadFile('./assets/data/task' + id + '/task.html').then(text => task.taskHtml = text);
 
-            fetch('/assets/data/task' + id + '/desc.json')
-                .then(response => response.text())
-                .then(text => {
-                    let json = JSON.parse(text);
+            this.loadFile('./assets/data/task' + id + '/desc.json').then(text => {
+                console.log(text);
+                let json = JSON.parse(text);
 
-                    task.shortName = json['shortName'];
-                    task.expectedOutput = json['expectedOutput'];
-                    task.inputText = json['inputText'];
-                    task.solution = json['solution'];
-                });
+                console.log(json);
+
+                task.shortName = json['shortName'];
+                task.expectedOutput = json['expectedOutput'];
+                task.inputText = json['inputText'];
+                task.solution = json['solution'];
+            });
 
             tasks.push(task);
         }
-
 
         return tasks;
     }
