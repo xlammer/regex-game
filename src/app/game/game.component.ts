@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskService} from '../task.service';
 import {Task} from '../Task';
+import {MAX_TIMER_TIME} from '../timer/timer.component';
 
 
 @Component({
@@ -12,6 +13,7 @@ export class GameComponent implements OnInit {
 
     tasks: Task [];
     currentTask: Task;
+    timesUp: boolean;
 
     constructor(private taskService: TaskService) {
     }
@@ -31,8 +33,13 @@ export class GameComponent implements OnInit {
 
     regexChanged() {
         if (this.currentTask == null || this.currentTask.regex == null || this.currentTask.regex === '') {
-            return '';
+            this.currentTask.output = [];
         }
+
+        if (this.currentTask.regex.indexOf('*') >= 0) {
+            this.currentTask.output = ['You cannot use asterisk symbol, because G flag is used and regex will match indefinitely.'];
+        }
+
         try {
             let regexp = new RegExp(this.currentTask.regex, 'gi');
             console.log(regexp);
@@ -43,7 +50,10 @@ export class GameComponent implements OnInit {
                 let match;
                 let accu = '';
                 while ((match = regexp.exec(text)) !== null) {
-                    accu += match;
+                    if (match[0] === '') {
+                        break;
+                    }
+                    accu += match[0];
                 }
                 results.push(accu);
             }
@@ -53,22 +63,21 @@ export class GameComponent implements OnInit {
         }
     }
 
-    getTaskButtonClass(id) {
-        if (this.taskFinished(id)) {
+    getTaskButtonClass(task: Task) {
+        if (this.taskFinished(task)) {
             return 'btn-success';
         }
-        if (this.currentTask.id === id) {
+        if (this.currentTask.id === task.id) {
             return 'btn-primary';
         }
         return 'btn-default';
     }
 
-    success() {
-        return this.taskFinished(this.currentTask.id);
+    gameFinished() {
+        return this.tasks.every(task => this.taskFinished(task));
     }
 
-    taskFinished(id: number) {
-        let task = this.tasks[id - 1];
+    taskFinished(task: Task) {
         return task.isFinished();
     }
 
@@ -78,5 +87,11 @@ export class GameComponent implements OnInit {
 
     resultClass(index: number) {
         return this.isResultOk(index) ? 'list-group-item-success' : 'list-group-item-danger';
+    }
+
+    onTimerTick(secondsPassed: number) {
+        if (secondsPassed === MAX_TIMER_TIME) {
+            this.timesUp = true;
+        }
     }
 }

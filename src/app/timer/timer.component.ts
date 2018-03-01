@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
     selector: 'app-timer',
@@ -6,24 +6,30 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class TimerComponent implements OnInit {
 
-    @Input() percentage: number;
+    @Input()
+    percentage: number;
 
-    secondsPassed = 0;
+    @Output() onTick = new EventEmitter<number>();
+    secondsPassed: number;
 
     constructor() {
         this.percentage = 0;
+        this.secondsPassed = 0;
     }
 
     ngOnInit() {
         setInterval(_ => {
-            if (this.secondsPassed < 300) {
+            if (this.secondsPassed < MAX_TIMER_TIME) {
                 this.secondsPassed++;
-                this.percentage = (this.secondsPassed / 300 * 100);
+                this.onTick.emit(this.secondsPassed);
+                this.percentage = (this.secondsPassed / MAX_TIMER_TIME * 100);
             }
         }, 1000);
     }
 
     titleFormat = (): any => {
-        return 300 - this.secondsPassed;
-    };
+        return MAX_TIMER_TIME - this.secondsPassed;
+    }
 }
+
+export const MAX_TIMER_TIME = 300;

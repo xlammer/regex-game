@@ -1,14 +1,29 @@
-<div class="container text-left">
+<div class="overlay" *ngIf="gameFinished()">
+    <div class="bg-success task-info rounded overlay-text">
+        <h1><b>Great success!</b> You absolutely nailed it!</h1>
+        <h3>Next please?</h3>
+        <p><a class="btn btn-primary btn-lg" href="#" routerLink="/welcome" role="button">Start over!</a></p>
+    </div>
+</div>
 
+<div class="overlay" *ngIf="timesUp">
+    <div class="bg-warning task-info rounded overlay-text">
+        <h1><b>Time's up!</b> No worries, you did well.</h1>
+        <h3>Bring me next hooman for torture.</h3>
+        <p><a class="btn btn-primary btn-lg" href="#" routerLink="/welcome" role="button">Start over!</a></p>
+    </div>
+</div>
+
+<div class="container text-left">
     <div class="row text-right">
         <div class="col-md-6 text-center col-middle">
             <button type="button" *ngFor="let task of tasks; index as i;"
-                    (click)="setActive(i)" [class]="getTaskButtonClass(task.id) + ' btn task-btn'">
+                    (click)="setActive(i)" [class]="getTaskButtonClass(tasks[i]) + ' btn task-btn'">
                 {{task.id}}
             </button>
         </div>
 
-        <app-timer class="col-middle col-md-4"></app-timer>
+        <app-timer class="col-middle col-md-4" (onTick)="onTimerTick($event)"></app-timer>
     </div>
 
     <div class="row">
@@ -32,7 +47,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="regex">Text input</label>
+                    <label for="regex">Input values</label>
                     <ul class="list-group">
                         <li class="list-group-item" *ngFor="let text of currentTask.inputText;">{{text}}</li>
                     </ul>
@@ -44,7 +59,7 @@
                     <input type="text" class="form-control input-lg" id="regex" placeholder="Regex"
                            [(ngModel)]="currentTask.regex" (change)="regexChanged()">
                 </div>
-                <div class="alert alert-success" role="alert" *ngIf="success()">
+                <div class="alert alert-success" role="alert" *ngIf="taskFinished(currentTask)">
                     <b>Congratulations!</b> Well done.
                     {{currentTask.id !== tasks.length ? 'Shall we continue?' : ''}}
                 </div>
