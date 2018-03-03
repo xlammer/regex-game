@@ -1,14 +1,14 @@
 Regex is all about pattern matching and provides some nifty tools to filter out only values that contain
-information we know how to deal with.<br>
+information we know how to deal with.<br xmlns="http://www.w3.org/1999/html">
 Sometimes we might know exactly how the word starts and ends and might not really care about the middle part.
 <br>
 <strong>^</strong> indicates the start of a word, so if I use <strong>^abc</strong> then only words
 starting with letters abc would be matched. For ending, special character <strong>$</strong> is used.
 Should I use <strong>abc$</strong> then the word would need to end with said letters to qualify as a match. <br>
-Dot is a special case in regex and needs to be escaped, so if you wish to use it in your expression use
-<strong>\.</strong> instead. <br>
-There are many ways to communicate that you don't really care what character is next. <strong>\w</strong> for example
-would match any letter or digit, but would not match a dot. <strong>\S</strong> would match letters, digits and
-othe characters. <strong>\w</strong> and <strong>\S</strong> match a single character, to match multiple, you can add
-+ so they become <strong>\w+</strong> and <strong>\S+</strong>.
+Dot is a special character that matches anything. If I use a <strong>.</strong> in my expression then there could be
+letter <em>a</em> or there could be digit <em>5</em> at that spot it would still be a match. <br>
+What if I don't really care about the number of characters matching my pattern and I just want to match them all?
+Well, glad you asked. This <strong>*</strong> is a special quantifier for this. Remember using
+<strong>\d{4}</strong> to match 4digits? If you wanted to match any number of digits you could just use
+<strong>\d*</strong>.<br>
 <strong>NB!</strong> Our tests tuned so that regexp will not stop on first match and will check every single character whether it's a digit or not (regexp G flag is used).

@@ -1,14 +1,14 @@
 {
   "shortName": "",
   "inputText": [
-    "",
-    "",
-    ""
+    "Line 1\\n",
+    "Line 2\\n",
+    "Line 3\\n"
   ],
   "solution": "\\d",
   "expectedOutput": [
-    "",
-    "",
-    ""
+    "Line 1\n",
+    "Line 2\n",
+    "Line 3\n"
   ]
 }
