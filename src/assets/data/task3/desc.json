@@ -1,14 +1,18 @@
 {
-  "shortName": "",
+  "shortName": "Starts with, ends with",
   "inputText": [
-    "",
-    "",
-    ""
+    "web-1.playtech.ee",
+    "web-2.ee",
+    "db-web-server.playtech.ee",
+    "web-3.playtech.ee",
+    "web-4.playtech.ee.com"
   ],
   "solution": "\\d",
   "expectedOutput": [
+    "web-1.playtech.ee",
     "",
     "",
+    "web-3.playtech.ee",
     ""
   ]
 }
