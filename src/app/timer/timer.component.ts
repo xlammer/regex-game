@@ -34,8 +34,25 @@ export class TimerComponent implements OnInit {
             let seconds = secondsLeft - minutes * 60;
             return minutes + 'm ' + seconds + 's';
         }
-        return secondsLeft + ' seconds';
+        return secondsLeft + 's';
     }
 }
 
 export const MAX_TIMER_TIME = 600;
+
+export const TIMER_OPTIONS = {
+    radius: 50,
+    outerStrokeWidth: 12,
+    outerStrokeColor: '#4882c2',
+    innerStrokeWidth: 12,
+    innerStrokeColor: '#e7e8ea',
+    outerStrokeLinecap: 'butt',
+    backgroundOpacity: 1,
+    space: -12,
+    animation: false,
+    maxPercent: 100,
+    showSubtitle: false,
+    showUnits: false,
+    clockwise: false,
+    toFixed: 3
+};
