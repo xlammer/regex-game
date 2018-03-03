@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskService} from '../task.service';
 import {Task} from '../Task';
-import {MAX_TIMER_TIME} from '../timer/timer.component';
 
 
 @Component({
@@ -48,14 +47,14 @@ export class GameComponent implements OnInit {
             for (let text of this.currentTask.inputText) {
                 console.log('checking text: ' + text);
                 let match;
-                let accu = '';
+                let result = '';
                 while ((match = regexp.exec(text)) !== null) {
                     if (match[0] === '') {
                         break;
                     }
-                    accu += match[0];
+                    result += match[0];
                 }
-                results.push(accu);
+                results.push(result);
             }
             this.currentTask.output = results;
         } catch {
@@ -89,9 +88,7 @@ export class GameComponent implements OnInit {
         return this.isResultOk(index) ? 'list-group-item-success' : 'list-group-item-danger';
     }
 
-    onTimerTick(secondsPassed: number) {
-        if (secondsPassed === MAX_TIMER_TIME) {
-            this.timesUp = true;
-        }
+    onTimerFinished() {
+        this.timesUp = true;
     }
 }

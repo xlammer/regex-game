@@ -9,7 +9,8 @@ export class TimerComponent implements OnInit {
     @Input()
     percentage: number;
 
-    @Output() onTick = new EventEmitter<number>();
+    @Output() finished = new EventEmitter<boolean>();
+
     secondsPassed: number;
 
     constructor() {
@@ -18,18 +19,43 @@ export class TimerComponent implements OnInit {
     }
 
     ngOnInit() {
-        setInterval(_ => {
+        let id = setInterval(_ => {
             if (this.secondsPassed < MAX_TIMER_TIME) {
                 this.secondsPassed++;
-                this.onTick.emit(this.secondsPassed);
                 this.percentage = (this.secondsPassed / MAX_TIMER_TIME * 100);
+            } else {
+                clearInterval(id);
+                this.finished.emit(true);
             }
         }, 1000);
     }
 
     titleFormat = (): any => {
-        return MAX_TIMER_TIME - this.secondsPassed;
+        let secondsLeft = MAX_TIMER_TIME - this.secondsPassed;
+        if (secondsLeft > 60) {
+            let minutes = Math.floor(secondsLeft / 60);
+            let seconds = secondsLeft - minutes * 60;
+            return minutes + 'm ' + seconds + 's';
+        }
+        return secondsLeft + 's';
     }
 }
 
-export const MAX_TIMER_TIME = 300;
+export const MAX_TIMER_TIME = 600;
+
+export const TIMER_OPTIONS = {
+    radius: 50,
+    outerStrokeWidth: 12,
+    outerStrokeColor: '#4882c2',
+    innerStrokeWidth: 12,
+    innerStrokeColor: '#e7e8ea',
+    outerStrokeLinecap: 'butt',
+    backgroundOpacity: 1,
+    space: -12,
+    animation: false,
+    maxPercent: 100,
+    showSubtitle: false,
+    showUnits: false,
+    clockwise: false,
+    toFixed: 3
+};

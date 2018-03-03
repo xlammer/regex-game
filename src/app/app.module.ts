@@ -9,7 +9,7 @@ import {AppComponent} from './app.component';
 import {GameComponent} from './game/game.component';
 import {WelcomeComponent} from './welcome/welcome.component';
 import {TaskService} from './task.service';
-import {TimerComponent} from './timer/timer.component';
+import {TIMER_OPTIONS, TimerComponent} from './timer/timer.component';
 import {NgCircleProgressModule} from 'ng-circle-progress';
 
 
@@ -25,19 +25,7 @@ import {NgCircleProgressModule} from 'ng-circle-progress';
         AppRoutingModule,
         FormsModule,
         NgbModule.forRoot(),
-        NgCircleProgressModule.forRoot({
-            radius: 50,
-            outerStrokeWidth: 12,
-            outerStrokeColor: '#4882c2',
-            innerStrokeWidth: 12,
-            innerStrokeColor: '#e7e8ea',
-            backgroundOpacity: 1,
-            space: -12,
-            animation: false,
-            maxPercent: 100,
-            showSubtitle: false,
-            units: 's',
-        })
+        NgCircleProgressModule.forRoot(TIMER_OPTIONS)
     ],
     providers: [TaskService],
     bootstrap: [AppComponent]
