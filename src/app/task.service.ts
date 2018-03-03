@@ -29,8 +29,6 @@ export class TaskService {
         });
     }
 
-
-
     getTasks(): Task[] {
         let tasks = [];
         for (let id of this.ids) {

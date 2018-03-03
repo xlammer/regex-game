@@ -1,1 +1,30 @@
-Lesson html
+Quantifiers in regular expressions define amount of matches of previous rule. For example expression
+<b>a{2}</b> for string <b>'aabba'</b> will match only first double <b>a</b>'s - this should be easy, right?
+Let's look at following table:
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Quantifier</th>
+        <th>What it matches</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th scope="row">1</th>
+        <td>{2}</td>
+        <td>Exactly 2 symbols (may be any number)</td>
+    </tr>
+    <tr>
+        <th scope="row">2</th>
+        <td>{2,7}</td>
+        <td>Between 2 and 7</td>
+    </tr>
+    <tr>
+        <th scope="row">3</th>
+        <td>{2,}</td>
+        <td>2 or more</td>
+    </tr>
+    </tbody>
+</table>

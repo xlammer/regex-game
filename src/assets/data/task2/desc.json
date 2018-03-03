@@ -1,14 +1,16 @@
 {
-  "shortName": "",
+  "shortName": "Quantifiers",
   "inputText": [
-    "",
-    "",
-    ""
+    "KD-2150",
+    "KF-2150",
+    "KD-409",
+    "KD-9998"
   ],
-  "solution": "\\d",
+  "solution": "",
   "expectedOutput": [
+    "KD-2150",
     "",
     "",
-    ""
+    "KD-9998"
   ]
 }
