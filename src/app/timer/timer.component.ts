@@ -35,7 +35,7 @@ export class TimerComponent implements OnInit {
             return minutes + 'm ' + seconds + 's';
         }
         return secondsLeft + ' seconds';
-    };
+    }
 }
 
 export const MAX_TIMER_TIME = 600;
