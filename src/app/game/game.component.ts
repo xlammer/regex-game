@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {TaskService} from '../task.service';
 import {Task} from '../Task';
-import {MAX_TIMER_TIME} from '../timer/timer.component';
 
 
 @Component({
@@ -89,9 +88,7 @@ export class GameComponent implements OnInit {
         return this.isResultOk(index) ? 'list-group-item-success' : 'list-group-item-danger';
     }
 
-    onTimerTick(secondsPassed: number) {
-        if (secondsPassed === MAX_TIMER_TIME) {
-            this.timesUp = true;
-        }
+    onTimerFinished() {
+        this.timesUp = true;
     }
 }

@@ -9,7 +9,8 @@ export class TimerComponent implements OnInit {
     @Input()
     percentage: number;
 
-    @Output() onTick = new EventEmitter<number>();
+    @Output() finished = new EventEmitter<boolean>();
+
     secondsPassed: number;
 
     constructor() {
@@ -18,11 +19,13 @@ export class TimerComponent implements OnInit {
     }
 
     ngOnInit() {
-        setInterval(_ => {
+        let id = setInterval(_ => {
             if (this.secondsPassed < MAX_TIMER_TIME) {
                 this.secondsPassed++;
-                this.onTick.emit(this.secondsPassed);
                 this.percentage = (this.secondsPassed / MAX_TIMER_TIME * 100);
+            } else {
+                clearInterval(id);
+                this.finished.emit(true);
             }
         }, 1000);
     }
