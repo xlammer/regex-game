@@ -36,7 +36,7 @@ import {NgCircleProgressModule} from 'ng-circle-progress';
             animation: false,
             maxPercent: 100,
             showSubtitle: false,
-            units: 's',
+            showUnits: false
         })
     ],
     providers: [TaskService],

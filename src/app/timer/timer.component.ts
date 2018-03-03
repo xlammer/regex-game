@@ -28,8 +28,14 @@ export class TimerComponent implements OnInit {
     }
 
     titleFormat = (): any => {
-        return MAX_TIMER_TIME - this.secondsPassed;
-    }
+        let secondsLeft = MAX_TIMER_TIME - this.secondsPassed;
+        if (secondsLeft > 60) {
+            let minutes = Math.floor(secondsLeft / 60);
+            let seconds = secondsLeft - minutes * 60;
+            return minutes + 'm ' + seconds + 's';
+        }
+        return secondsLeft + ' seconds';
+    };
 }
 
-export const MAX_TIMER_TIME = 300;
+export const MAX_TIMER_TIME = 600;
