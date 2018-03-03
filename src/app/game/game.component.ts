@@ -33,31 +33,26 @@ export class GameComponent implements OnInit {
     regexChanged() {
         if (this.currentTask == null || this.currentTask.regex == null || this.currentTask.regex === '') {
             this.currentTask.output = [];
-        }
-
-        if (this.currentTask.regex.indexOf('*') >= 0) {
-            this.currentTask.output = ['You cannot use asterisk symbol, because G flag is used and regex will match indefinitely.'];
+            return;
         }
 
         try {
-            let regexp = new RegExp(this.currentTask.regex, 'gi');
+            let regexp = new RegExp(this.currentTask.regex);
             console.log(regexp);
 
             let results = [];
             for (let text of this.currentTask.inputText) {
                 console.log('checking text: ' + text);
-                let match;
-                let result = '';
-                while ((match = regexp.exec(text)) !== null) {
-                    if (match[0] === '') {
-                        break;
-                    }
-                    result += match[0];
+                let match = regexp.exec(text);
+                if (match == null) {
+                    results.push('');
+                } else {
+                    results.push(match[0]);
                 }
-                results.push(result);
             }
             this.currentTask.output = results;
-        } catch {
+        } catch (e) {
+            console.log(e);
             this.currentTask.output = ['Malformed syntax!'];
         }
     }

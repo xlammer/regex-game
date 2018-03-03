@@ -1,14 +1,17 @@
 {
   "shortName": "Exceptions",
   "inputText": [
-    "Line 1\\n",
-    "Line 2\\n",
-    "Line 3\\n"
+    "[28/Jul/2018:17:07:33] \"GET /north-wing/\"\\n",
+    "[8/Aug/2000:09:09:09] \"PUT /kitten/oriental\"\\n",
+    "[25/Dec/2012:12:52:44] \"POST /wine/riesling\"\\n",
+    "[9/Feb/2006:10:27:32] \"DELETE /student/\"\\n"
+
   ],
   "solution": "\\d",
   "expectedOutput": [
-    "Line 1",
-    "Line 2",
-    "Line 3"
+    "[28/Jul/2018:17:07:33] \"GET /north-wing/\"",
+    "[8/Aug/2000:09:09:09] \"PUT /kitten/oriental\"",
+    "[25/Dec/2012:12:52:44] \"POST /wine/riesling\"",
+    "[9/Feb/2006:10:27:32] \"DELETE /student/\""
   ]
 }

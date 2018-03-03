@@ -23,7 +23,7 @@
             </button>
         </div>
 
-        <app-timer class="col-middle col-md-4" (finished)="onTimerFinished($event)"></app-timer>
+        <app-timer class="col-middle col-md-4" (finished)="onTimerFinished()"></app-timer>
     </div>
 
     <div class="row">
@@ -47,13 +47,13 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="form-group">
-                    <label for="regex">Input values</label>
+                    <label for="regex">Input strings</label>
                     <ul class="list-group">
                         <li class="list-group-item" *ngFor="let text of currentTask.inputText;">{{text}}</li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label for="regex">Regular expression</label>
                     <input type="text" class="form-control input-lg" id="regex" placeholder="Regex"
@@ -64,15 +64,15 @@
                     {{currentTask.id !== tasks.length ? 'Shall we continue?' : ''}}
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5">
                 <div class="form-group">
-                    <label for="regex">Results</label>
+                    <label for="regex">Matched results</label>
                     <ul class="list-group">
                         <li [class]="'list-group-item ' + resultClass(i)"
                             *ngFor="let out of currentTask.output; index as i">
                             <div class="row">
                                 <div class="col-md-10">{{out === '' ? 'Nothing matched.' : out}}</div>
-                                <div class="col-md-2">
+                                <div class="col-md-2 text-right">
                                     <span *ngIf="isResultOk(i); else elseBlock" class="glyphicon glyphicon-ok"
                                           aria-hidden="true"></span>
                                     <ng-template #elseBlock>

@@ -1,14 +1,16 @@
 {
   "shortName": "Matching a digit",
   "inputText": [
-    "Feb2017",
-    "Jan-2009",
-    "303BC"
+    "2017-Feb",
+    "2018 April",
+    "2009Jan",
+    "830\\January"
   ],
   "solution": "\\d",
   "expectedOutput": [
     "2017",
+    "2018",
     "2009",
-    "303"
+    "830"
   ]
 }

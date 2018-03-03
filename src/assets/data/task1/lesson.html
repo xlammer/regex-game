@@ -1,6 +1,12 @@
-Let's start from the simplest rule, probably :) Matching a digit. <br>
-There are many cases in daily routines that require us working with integers that are for some reason trapped within a sequence of characters. Regex will help you find those digits.
-<br>
-In order to match a single digit you have to specify special character <strong>\d</strong> or use
-<strong>[0-9]</strong> as regular expression pattern. It will match any number form your input string.<br>
-<strong>NB!</strong> Our tests tuned so that regexp will not stop on first match and will check every single character whether it's a digit or not (regexp G flag is used).
+<p>Let's start from the simplest rule, probably :) Matching a digit.</p>
+<p>
+    There are many cases in daily routines that require us working with numbers that are for some reason trapped within
+    a sequence of characters. Regex will help you find those numbers.
+</p>
+<p>
+    In order to match a single digit you have to specify special character <strong>\d</strong> or use
+    <strong>[0-9]</strong> as regular expression pattern. It will match only first digit it finds, to find following
+    digits you should put asterisk (<b>*</b>) symbol right after your chosen regexp pattern for digits. Essentially it
+    means look
+    forward character by character until you reach non-digit or end of given string.
+</p>

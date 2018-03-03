@@ -1,5 +1,8 @@
-Quantifiers in regular expressions define amount of matches of previous rule. For example expression
-<b>a{2}</b> for string <b>'aabba'</b> will match only first double <b>a</b>'s - this should be easy, right?
+<p xmlns="http://www.w3.org/1999/html">
+    Quantifiers in regular expressions define amount of matches of previous rule. For example expression
+    <b>a{2}</b> for input string <b>aabba</b> will result in <b>aa</b>. If given input string doesn't contain double <b>a</b>'s
+    in the beginning then there will be no result. This should be easy, right?
+</p>
 Let's look at following table:
 
 <table class="table table-striped">
@@ -25,6 +28,11 @@ Let's look at following table:
         <th scope="row">3</th>
         <td>{2,}</td>
         <td>2 or more</td>
+    </tr>
+    <tr>
+        <th scope="row">4</th>
+        <td>*</td>
+        <td>0 or more</td>
     </tr>
     </tbody>
 </table>

@@ -39,10 +39,7 @@ export class TaskService {
             this.loadFile('./assets/data/task' + id + '/task.html').then(text => task.taskHtml = text);
 
             this.loadFile('./assets/data/task' + id + '/desc.json').then(text => {
-                console.log(text);
                 let json = JSON.parse(text);
-
-                console.log(json);
 
                 task.shortName = json['shortName'];
                 task.expectedOutput = json['expectedOutput'];
