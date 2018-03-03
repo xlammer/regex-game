@@ -48,14 +48,14 @@ export class GameComponent implements OnInit {
             for (let text of this.currentTask.inputText) {
                 console.log('checking text: ' + text);
                 let match;
-                let accu = '';
+                let result = '';
                 while ((match = regexp.exec(text)) !== null) {
                     if (match[0] === '') {
                         break;
                     }
-                    accu += match[0];
+                    result += match[0];
                 }
-                results.push(accu);
+                results.push(result);
             }
             this.currentTask.output = results;
         } catch {

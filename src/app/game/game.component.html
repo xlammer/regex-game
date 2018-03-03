@@ -71,7 +71,7 @@
                         <li [class]="'list-group-item ' + resultClass(i)"
                             *ngFor="let out of currentTask.output; index as i">
                             <div class="row">
-                                <div class="col-md-10">{{out}}</div>
+                                <div class="col-md-10">{{out === '' ? 'Nothing matched.' : out}}</div>
                                 <div class="col-md-2">
                                     <span *ngIf="isResultOk(i); else elseBlock" class="glyphicon glyphicon-ok"
                                           aria-hidden="true"></span>
