@@ -1,7 +1,7 @@
 {
   "shortName": "Putting it all together",
   "inputText": [
-    "ka@boom.ee",
+    "ka@boom.eu",
     "john@supermail.eu",
     "pretty007@monster.ee",
     "brian@winter-sports.eu",
@@ -9,7 +9,7 @@
   ],
   "solution": "\\d",
   "expectedOutput": [
-    "ka@boom.ee",
+    "ka@boom.eu",
     "",
     "",
     "",
