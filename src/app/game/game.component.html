@@ -60,6 +60,7 @@
                            [(ngModel)]="currentTask.regex" (change)="regexChanged()" (keyup)="regexChanged()">
                 </div>
                 <div class="alert alert-success" role="alert" *ngIf="taskFinished(currentTask)">
+                    <audio src="./assets/success.mp3" autoplay></audio>
                     <b>Congratulations!</b> Well done.
                     {{currentTask.id !== tasks.length ? 'Shall we continue?' : ''}}
                 </div>
