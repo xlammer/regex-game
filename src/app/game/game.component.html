@@ -57,7 +57,7 @@
                 <div class="form-group">
                     <label for="regex">Regular expression</label>
                     <input type="text" class="form-control input-lg" id="regex" placeholder="Regex"
-                           [(ngModel)]="currentTask.regex" (change)="regexChanged()">
+                           [(ngModel)]="currentTask.regex" (change)="regexChanged()" (keyup)="regexChanged()">
                 </div>
                 <div class="alert alert-success" role="alert" *ngIf="taskFinished(currentTask)">
                     <b>Congratulations!</b> Well done.
