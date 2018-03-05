@@ -1,14 +1,18 @@
 <p>
-    Regex is all about pattern matching and provides some nifty tools to filter out only values that contain
-    information we know how to deal with. Sometimes we might know exactly how the word starts and ends and might not
-    really care about the middle part.
+    There are some characters that regex treats special, you have already seen a few, here is the full list:
+    <strong>.^$*+?()[{\|</strong> <br>
+    Remember that <b>[0-9]</b> would match any digit? Well square brackets are special to regex too, you can use them to specify
+    within what set of characters a match is. So for example <strong>[abc]</strong> would match any of the characters a, b
+    and c. <br>
+    <strong>.</strong> is another example, it is regex special way of saying anything - <strong>.</strong> matches any character
+    not just <strong>.</strong> itself.
 </p>
 <p>
-    <b>^</b> indicates the start of a word, so if I use <b>^abc</b> then only words
-    starting with letters <b>abc</b> would be matched. For ending, special character <b>$</b> is used.
-    Should I use <b>abc$</b> then the word would need to end with said letters to qualify as a match.
+    Sometimes we want some data we collect to be at the same time human readable and also easy to process by computer. For
+    this we might have some specific way of marking the parts of the text that are actually important or unique. We might
+    even use characters that regex finds special too. <br>
+    To try and match a special character, it first needs to be escaped by using a backslash. For example as said
+    the <strong>.</strong> usually tells regex to match any character, so if I wanted to match a <strong>.</strong> and
+    only that, I would use <strong>\.</strong> <br>
 </p>
-<p> Dot is a special character that matches any single character (symbol). If I use a '<b>.</b>' in my expression then
-    there could be letter <b><em>a</em></b> or there could be digit <b><em>5</em></b> at that spot it would still be a
-    match.
-</p>
+

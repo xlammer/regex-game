@@ -1,17 +1,18 @@
 {
-  "shortName": "Exceptions",
+  "shortName": "Starts with, ends with",
   "inputText": [
-    "[28/Jul/2018:17:07:33] \"GET /north-wing/\"\\n",
-    "[8/Aug/2000:09:09:09] \"PUT /kitten/oriental\"\\n",
-    "[25/Dec/2012:12:52:44] \"POST /wine/riesling\"\\n",
-    "[9/Feb/2006:10:27:32] \"DELETE /student/\"\\n"
-
+    "web-1.playtech.ee",
+    "web-2.ee",
+    "db-web-server.playtech.ee",
+    "web-3.playtech.ee",
+    "web-4.playtech.ee.com"
   ],
   "solution": "\\d",
   "expectedOutput": [
-    "[28/Jul/2018:17:07:33] \"GET /north-wing/\"",
-    "[8/Aug/2000:09:09:09] \"PUT /kitten/oriental\"",
-    "[25/Dec/2012:12:52:44] \"POST /wine/riesling\"",
-    "[9/Feb/2006:10:27:32] \"DELETE /student/\""
+    "web-1.playtech.ee",
+    "",
+    "",
+    "web-3.playtech.ee",
+    ""
   ]
 }

@@ -1,18 +1,17 @@
 {
-  "shortName": "Starts with, ends with",
+  "shortName": "Exceptions",
   "inputText": [
-    "web-1.playtech.ee",
-    "web-2.ee",
-    "db-web-server.playtech.ee",
-    "web-3.playtech.ee",
-    "web-4.playtech.ee.com"
+    "This happened [28/Jul/2018:17:07:33]",
+    "Received (PUT /kitten/oriental) request",
+    "Someone wants to do this (POST /wine/riesling)",
+    "[9/Feb/2006:10:27:32] something happened"
+
   ],
   "solution": "\\d",
   "expectedOutput": [
-    "web-1.playtech.ee",
-    "",
-    "",
-    "web-3.playtech.ee",
-    ""
+    "[28/Jul/2018:17:07:33]",
+    "(PUT /kitten/oriental)",
+    "(POST /wine/riesling)",
+    "[9/Feb/2006:10:27:32]"
   ]
 }
