@@ -1,4 +1,8 @@
 <p>
-    We only care about the parts between round or square brackets so go ahead and extract those.
-    Remember that <b>.</b> matches every character? And that <b>*</b> is a special quantifier? Now might be a good time to reuse those.
+    In the input strings we have logs of windows catalogs that are either added or removed and we'd like to extract only paths.
+</p>
+<p>
+    To match a special character, it first needs to be escaped by using a backslash (<b>\</b>). For example as
+    said the <b>.</b> usually tells regex to match any character, so if I wanted to match a <b>.</b> and only that, I
+    would use <b>\.</b>
 </p>

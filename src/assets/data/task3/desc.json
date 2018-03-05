@@ -1,17 +1,16 @@
 {
-  "shortName": "Exceptions",
+  "shortName": "Using sets",
   "inputText": [
-    "This happened [28/Jul/2018:17:07:33]",
-    "Received (PUT /kitten/oriental) request",
-    "Someone wants to do this (POST /wine/riesling)",
-    "[9/Feb/2006:10:27:32] something happened"
-
+    "added D:\\Users\\Henry\\Documents\\",
+    "C:\\windows\\ removed",
+    "added X:\\ignore\\me\\",
+    "E:\\music\\eminem\\ removed"
   ],
   "solution": "\\d",
   "expectedOutput": [
-    "[28/Jul/2018:17:07:33]",
-    "(PUT /kitten/oriental)",
-    "(POST /wine/riesling)",
-    "[9/Feb/2006:10:27:32]"
+    "D:\\Users\\Henry\\Documents\\",
+    "C:\\windows\\",
+    "X:\\ignore\\me\\",
+    "E:\\music\\eminem\\"
   ]
 }

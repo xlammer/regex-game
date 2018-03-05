@@ -38,7 +38,7 @@
     <br>
     <div class="row">
         <ngb-alert [dismissible]="false">
-            <strong>Testing time!</strong> <br>
+            <b>Testing time!</b> <br>
             <div [innerHTML]="currentTask.taskHtml"></div>
         </ngb-alert>
     </div>
@@ -57,10 +57,9 @@
                 <div class="form-group">
                     <label for="regex">Regular expression</label>
                     <input type="text" class="form-control input-lg" id="regex" placeholder="Regex"
-                           [(ngModel)]="currentTask.regex" (change)="regexChanged()" (keyup)="regexChanged()">
+                           [(ngModel)]="currentTask.regex" (keyup)="regexChanged()">
                 </div>
                 <div class="alert alert-success" role="alert" *ngIf="taskFinished(currentTask)">
-                    <audio src="./assets/success.mp3" autoplay></audio>
                     <b>Congratulations!</b> Well done.
                     {{currentTask.id !== tasks.length ? 'Shall we continue?' : ''}}
                 </div>

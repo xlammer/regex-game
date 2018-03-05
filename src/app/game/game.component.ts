@@ -14,6 +14,7 @@ export class GameComponent implements OnInit {
     currentTask: Task;
     timesUp: boolean;
 
+
     constructor(private taskService: TaskService) {
     }
 
@@ -55,6 +56,11 @@ export class GameComponent implements OnInit {
             console.log(e);
             this.currentTask.output = ['Malformed syntax!'];
         }
+
+        if (this.currentTask.isFinished()) {
+            new Audio('./assets/success.mp3').play();
+        }
+
     }
 
     getTaskButtonClass(task: Task) {
