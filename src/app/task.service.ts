@@ -44,7 +44,6 @@ export class TaskService {
                 task.shortName = json['shortName'];
                 task.expectedOutput = json['expectedOutput'];
                 task.inputText = json['inputText'];
-                task.solution = json['solution'];
             });
 
             tasks.push(task);

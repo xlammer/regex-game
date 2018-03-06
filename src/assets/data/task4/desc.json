@@ -7,7 +7,6 @@
     "web-3.playtech.ee",
     "web-4.playtech.ee.com"
   ],
-  "solution": "\\d",
   "expectedOutput": [
     "web-1.playtech.ee",
     "",

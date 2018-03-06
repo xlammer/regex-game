@@ -6,7 +6,6 @@
     "added X:\\ignore\\me\\",
     "E:\\music\\eminem\\ removed"
   ],
-  "solution": "\\d",
   "expectedOutput": [
     "D:\\Users\\Henry\\Documents\\",
     "C:\\windows\\",

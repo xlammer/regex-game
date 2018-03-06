@@ -6,7 +6,6 @@
     "2009Jan",
     "830\\January"
   ],
-  "solution": "\\d",
   "expectedOutput": [
     "2017",
     "2018",

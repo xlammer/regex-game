@@ -6,7 +6,6 @@ export class Task {
     taskHtml: string;
     inputText: string [];
     regex: string;
-    solution: string;
     output: string [];
     expectedOutput: string [];
 

@@ -7,7 +7,6 @@
     "brian@winter-sports.eu",
     "jobs@playetch.ee"
   ],
-  "solution": "\\d",
   "expectedOutput": [
     "ka@boom.eu",
     "",
